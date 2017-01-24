@@ -9,6 +9,10 @@
     <button class="btn" (click)="search()">Suchen</button>
 </div>
 
+<li *ngFor="let u of users">
+  <ul>{{ u.categoryName }}</ul>
+</li>
+
 <table class="table table-striped">
     <tr>
         <th>id</th>

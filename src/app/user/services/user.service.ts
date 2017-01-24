@@ -4,7 +4,6 @@ import {users} from "../../entities/users";
 import {BASE_URL} from "../../app.token";
 import {Http, URLSearchParams, Headers} from "@angular/http";
 import {categories} from "../../entities/categories";
-import {Observable} from "rxjs";
 
 @Injectable()
     export class UserService {
