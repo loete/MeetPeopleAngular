@@ -1,8 +1,8 @@
 <h1>Messages</h1>
 
 <div class="form-group">
-    <label>Nachrichten</label>
-    <input [(ngModel)]="message"
+    <label>Suche nach Titel...</label>
+    <input [(ngModel)]="title"
            class="form-control">
 </div>
 
@@ -10,36 +10,9 @@
     <button class="btn" (click)="search()">Suchen</button>
 </div>
 
-   <!-- <li *ngFor="let m of messages">
-        <ul>{{ m.mes--sage }}</ul>
-    </li>-->
-
 <div *ngFor="let m of messages" class="col-xs-12 col-lg-3 col-md-4 col-sm-6 ">
     <message-card
         [item]="m">
     </message-card>
 </div>
 
-<table class="table table-striped">
-    <tr>
-        <th>id</th>
-        <th>Titel</th>
-        <th>Datum</th>
-
-        <th></th>
-    </tr>
-    <tr *ngFor="let m of messages">
-        <td>{{m.id}}</td>
-        <td>{{m.title}}</td>
-        <td>{{m.dayOfMessage}}</td>
-        <td><a (click)="select(m)">Details</a></td>
-        <td><a class="btn btn-default" [routerLink]="['/message-detail']">Details</a></td>
-    </tr>
-</table>
-
-<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
-<pre class="alert alert-success" role="alert">Nachricht
-------------------------
-{{ selectedMessage | json }}
-</pre>
-</div>

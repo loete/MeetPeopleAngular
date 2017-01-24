@@ -8,6 +8,7 @@ import {Observable} from "rxjs";
 export class MessageService {
 
     messages: Array<messages> = [];
+    titles: Array<messages> = [];
     suffix: string = 'messageses';
 
     constructor(
@@ -18,7 +19,7 @@ export class MessageService {
 
     public findById(id:string): Observable<messages> {
 
-      let url = this.baseUrl+this.suffix;
+      let url = this.baseUrl+this.suffix+"/"+id
 
       let search = new URLSearchParams();
       search.set('id', id);
@@ -45,39 +46,17 @@ export class MessageService {
         .map(resp => resp.json())
     }
 
-    public findAll(id: string) {
-
-        let url = this.baseUrl+this.suffix;
-
-        let search = new URLSearchParams();
-        search.set('id', id);
-
-        let headers = new Headers();
-        headers.set('Accept', 'application/json');
-
-        return this
-            .http
-            .get(url, {headers, search})
-            .map(resp => resp.json())
-            .subscribe(
-                (messages) => {
-                    this.messages = messages._embedded.messages;
-                },
-                (err) => {
-                    console.error('Fehler beim Laden', err)
-                }
-            )
-    }
-
     public findByTitle(title: string) {
 
-        let url = this.baseUrl+this.suffix;
+        let url = this.baseUrl+this.suffix
 
         let search = new URLSearchParams();
         search.set('title', title);
 
         let headers = new Headers();
         headers.set('Accept', 'application/json');
+
+        this.titles = [];
 
         return this
             .http
@@ -86,6 +65,13 @@ export class MessageService {
             .subscribe(
                 (messages) => {
                     this.messages = messages._embedded.messageses;
+                    for(let t of this.messages) {
+                        if(title == t.title) {
+                            this.titles.push(t);
+                        }
+                    }
+                    if(this.titles.length > 0) {
+                   this.messages = this.titles}
                 },
                 (err) => {
                     console.error('Fehler beim Laden', err)
