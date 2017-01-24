@@ -15,12 +15,11 @@ export class UserComponent implements OnInit{
 
     public category: string;
 
-
     constructor(private userService: UserService) {
     }
 
     ngOnInit(): void {
-      this.userService.find(this.category);
+      //this.userService.find(this.category);
     }
 
     public get users(): Array<categories> {

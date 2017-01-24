@@ -27,7 +27,7 @@ import {categories} from "../../entities/categories";
         let headers = new Headers();
         headers.set('Accept', 'application/json')
 
-        return this
+        this
             .http
             .get(url, {headers, search})
             .map(resp => resp.json())
