@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component,OnInit} from '@angular/core';
 import {UserService} from "./services/user.service";
 import {categories} from "../entities/categories";
 
@@ -11,14 +11,19 @@ import {categories} from "../entities/categories";
     providers: [ ]
 })
 
-export class UserComponent {
+export class UserComponent implements OnInit{
 
     public category: string;
+
 
     constructor(private userService: UserService) {
     }
 
-     public get users(): Array<categories> {
+    ngOnInit(): void {
+      this.userService.find(this.category);
+    }
+
+    public get users(): Array<categories> {
      return this.userService.users;
      }
 
