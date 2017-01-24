@@ -7,6 +7,7 @@ import {MessageService} from "./services/message.service";
 import {MessageDetailComponent} from "./message-detail.component";
 import {MessageRouterModule} from "./message.route";
 import {MessageEditComponent} from "./message-edit.component";
+import {MessageCardComponent} from "./message-card.component";
 
 @NgModule({
     imports: [
@@ -18,7 +19,8 @@ import {MessageEditComponent} from "./message-edit.component";
     declarations: [
         MessageComponent,
         MessageDetailComponent,
-        MessageEditComponent
+        MessageEditComponent,
+        MessageCardComponent
     ],
     providers: [
         MessageService

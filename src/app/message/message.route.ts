@@ -13,7 +13,7 @@ const MESSAGE_ROUTES: Routes = [
     component: MessageEditComponent
   },
     {
-        path: 'message-detail',
+        path: 'message-detail/:id',
         component: MessageDetailComponent
     }
 ];
