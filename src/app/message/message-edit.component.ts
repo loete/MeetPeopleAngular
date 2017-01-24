@@ -24,7 +24,32 @@ export class MessageEditComponent {
   msg: string;
 
   load(id: string): void {
-
+    this
+      .messageService
+      .findById(id)
+      .subscribe(
+        message => {
+          this.message = message;
+          this.msg = "";
+        },
+        (err) => {
+          this.msg = "Fehler beim Laden: "+ err.text();
+        }
+      )
   }
 
+  save(): void {
+    this
+      .messageService
+      .save(this.message)
+      .subscribe(
+        message => {
+          this.message = message;
+          this.msg = "";
+        },
+        (err) => {
+          this.msg = "Fehler beim Speichern: "+ err.text();
+        }
+      )
+  }
 }
