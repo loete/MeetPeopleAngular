@@ -7,11 +7,13 @@ import { RepoListComponent } from './github/repo-list/repo-list.component';
 import { RepoDetailComponent } from './github/repo-detail/repo-detail.component';
 import { ContactComponent } from './contact/contact.component';
 import {UserComponent} from "./user/user.component";
+import {MessageComponent} from "./message/message.component";
 
 export const rootRouterConfig: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'user', component: UserComponent },
+  { path: 'message', component: MessageComponent },
   { path: 'about', component: AboutComponent },
   { path: 'github', component: RepoBrowserComponent,
     children: [

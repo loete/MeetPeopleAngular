@@ -19,7 +19,7 @@ export class UserComponent {
     }
 
      public get users(): Array<categories> {
-     return this.userService.users;
+        return this.userService.users;
      }
 
     search(): void {

@@ -1,16 +1,14 @@
 
 import {Injectable, Inject} from "@angular/core";
-import {users} from "../../entities/users";
 import {BASE_URL} from "../../app.token";
 import {Http, URLSearchParams, Headers} from "@angular/http";
-import {categories} from "../../entities/categories";
-import {Observable} from "rxjs";
+import {messages} from "../../entities/messages";
 
 @Injectable()
-    export class UserService {
+export class MessageService {
 
-    users: Array<categories> = [];
-    suffix: string = 'categorieses';
+    messages: Array<messages> = [];
+    suffix: string = 'messageses';
 
     constructor(
         @Inject(BASE_URL) private baseUrl: string,
@@ -18,23 +16,23 @@ import {Observable} from "rxjs";
     {
     }
 
-    public find(categoryName: string) {
+    public findAll(id: string) {
 
         let url = this.baseUrl+this.suffix;
 
         let search = new URLSearchParams();
-        search.set('categoryName', categoryName);
+        search.set('id', id);
 
         let headers = new Headers();
-        headers.set('Accept', 'application/json')
+        headers.set('Accept', 'application/json');
 
         return this
             .http
             .get(url, {headers, search})
             .map(resp => resp.json())
             .subscribe(
-                (users) => {
-                    this.users = users._embedded.categorieses;
+                (messages) => {
+                    this.messages = messages._embedded.messages;
                 },
                 (err) => {
                     console.error('Fehler beim Laden', err)

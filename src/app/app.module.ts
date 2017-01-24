@@ -17,6 +17,7 @@ import { RepoDetailComponent } from './github/repo-detail/repo-detail.component'
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ContactComponent } from './contact/contact.component';
 import {UserModule} from "./user/user.module";
+import {MessageModule} from "./message/message.modul";
 
 const BASE_URL_FOR_PRODUCTION = "https://localhost:8080/"
 
@@ -37,7 +38,8 @@ const BASE_URL_FOR_PRODUCTION = "https://localhost:8080/"
     HttpModule,
     RouterModule.forRoot(rootRouterConfig, { useHash: true }),
     NgbModule.forRoot(),
-    UserModule
+    UserModule,
+    MessageModule
   ],
    providers: [
     GithubService,
