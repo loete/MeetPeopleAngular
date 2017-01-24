@@ -1,7 +1,7 @@
 export interface messages{
 
   id: number;
-  dayOfMessage: Date;
+  dayOfMessage: string;
   placeOfMessage: string;
   message: string;
   title: string;

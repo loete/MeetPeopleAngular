@@ -8,13 +8,15 @@ import {MessageDetailComponent} from "./message-detail.component";
 import {MessageRouterModule} from "./message.route";
 import {MessageEditComponent} from "./message-edit.component";
 import {MessageCardComponent} from "./message-card.component";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
-        MessageRouterModule
-        //  ShareModule
+        MessageRouterModule,
+        //  ShareModule,
+        NgbModule
     ],
     declarations: [
         MessageComponent,
