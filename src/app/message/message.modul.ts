@@ -5,17 +5,20 @@ import {FormsModule} from "@angular/forms";
 import {MessageComponent} from "./message.component";
 import {MessageService} from "./services/message.service";
 import {MessageDetailComponent} from "./message-detail.component";
+import {MessageRouterModule} from "./message.route";
+import {MessageEditComponent} from "./message-edit.component";
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
+        MessageRouterModule
         //  ShareModule
     ],
     declarations: [
         MessageComponent,
-        MessageDetailComponent
-        // MessageEditComponent
+        MessageDetailComponent,
+        MessageEditComponent
     ],
     providers: [
         MessageService

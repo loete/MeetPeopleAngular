@@ -1,1 +1,12 @@
 <h1>Detailansicht der Nachrichten</h1>
+
+<div>
+    {{ msg }}
+</div>
+<div *ngIf="message">
+    <p>{{message.id}}</p>
+    <p>{{message.title}}</p>
+    <p>{{message.message}}</p>
+    <p>{{message.dayOfMessage}}</p>
+    <p>{{message.placeOfMessage}}</p>
+</div>

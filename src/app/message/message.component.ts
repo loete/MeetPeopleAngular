@@ -14,6 +14,7 @@ import {messages} from "../entities/messages";
 export class MessageComponent implements OnInit{
 
     public message: string;
+    public selectedMessage: messages;
 
     constructor(private messageService: MessageService) {
     }
@@ -30,5 +31,9 @@ export class MessageComponent implements OnInit{
     search(): void {
         this.messageService
             .findByTitle(this.message)
+    }
+
+    select(message: messages): void {
+        this.selectedMessage = message;
     }
 }

@@ -18,23 +18,23 @@
 <table class="table table-striped">
     <tr>
         <th>id</th>
-        <th>Messages</th>
+        <th>Titel</th>
+        <th>Datum</th>
 
         <th></th>
     </tr>
     <tr *ngFor="let m of messages">
         <td>{{m.id}}</td>
         <td>{{m.title}}</td>
-        <td>{{m.message}}</td>
         <td>{{m.dayOfMessage}}</td>
-        <td>{{m.placeOfMessage}}</td>
         <td><a (click)="select(m)">Details</a></td>
+        <td><a class="btn btn-default" [routerLink]="['/message-detail']">Details</a></td>
     </tr>
 </table>
 
 <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
-<pre class="alert alert-success" role="alert">Passagier
+<pre class="alert alert-success" role="alert">Nachricht
 ------------------------
-{{ selectedPassenger | json }}
+{{ selectedMessage | json }}
 </pre>
 </div>
