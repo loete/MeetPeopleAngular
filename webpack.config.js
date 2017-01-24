@@ -37,10 +37,10 @@ var webpackConfig = {
       },
       { test: /\.css$/, loaders: ['to-string-loader', 'css-loader'] },
       { test: /\.html$/, loader: 'raw-loader' },
-        {
-            test: /\.(woff|woff2|ttf|eot|svg)$/,
-            loader: 'url-loader?limit=10000&mimetype=application/font-woff'
-        }
+      {
+        test: /\.(woff|woff2|ttf|eot|svg)$/,
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+      }
     ]
   }
 

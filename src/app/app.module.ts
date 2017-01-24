@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import {BASE_URL} from './app.token';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
@@ -35,6 +36,7 @@ const BASE_URL_FOR_PRODUCTION = "https://localhost:8080/"
     ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(rootRouterConfig, { useHash: true }),
+    NgbModule.forRoot(),
     UserModule
   ],
    providers: [

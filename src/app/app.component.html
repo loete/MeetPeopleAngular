@@ -1,6 +1,14 @@
 <h3>
-  Angular 2 Seed
+  MeetPeople
 </h3>
+
+<nav class="nav nav-pills flex-column flex-sm-row">
+  <a class="flex-sm-fill text-sm-center nav-link active" href="#">Active</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
+  <a class="flex-sm-fill text-sm-center nav-link disabled" href="#">Disabled</a>
+</nav>
+
 <nav>
 	<a [routerLink]="['/']">
     Home
@@ -18,7 +26,6 @@
     Contact Us
   </a>
 </nav>
-
 <main>
 	<router-outlet></router-outlet>
 </main>
