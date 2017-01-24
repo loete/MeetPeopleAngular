@@ -6,6 +6,7 @@ import { GithubService } from './github/shared/github.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
+import {BASE_URL} from './app.token';
 
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
@@ -14,6 +15,8 @@ import { RepoListComponent } from './github/repo-list/repo-list.component';
 import { RepoDetailComponent } from './github/repo-detail/repo-detail.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ContactComponent } from './contact/contact.component';
+
+const BASE_URL_FOR_PRODUCTION = "https://localhost:8080"
 
 @NgModule({
   declarations: [
@@ -32,8 +35,9 @@ import { ContactComponent } from './contact/contact.component';
     HttpModule,
     RouterModule.forRoot(rootRouterConfig, { useHash: true })
   ],
-  providers: [
-    GithubService
+   providers: [
+    GithubService,
+    { provide: BASE_URL, useValue: BASE_URL_FOR_PRODUCTION}
   ],
   bootstrap: [ AppComponent ]
 })
