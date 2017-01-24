@@ -1,7 +1,10 @@
 import './polyfills.browser';
+import 'style-loader!bootstrap/dist/css/bootstrap.css';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
+
+import 'rxjs/add/operator/map';
 
 export const platformRef = platformBrowserDynamic();
 
