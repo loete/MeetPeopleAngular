@@ -17,7 +17,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ContactComponent } from './contact/contact.component';
 import {UserModule} from "./user/user.module";
 
-const BASE_URL_FOR_PRODUCTION = "https://localhost:8080"
+const BASE_URL_FOR_PRODUCTION = "https://localhost:8080/"
 
 @NgModule({
   declarations: [

@@ -2,6 +2,8 @@
 
 <div class="form-group">
     <label>Kategorie</label>
+    <input [(ngModel)]="category"
+           class="form-control">
 </div>
 <div class="form-group">
     <button class="btn" (click)="search()">Suchen</button>
@@ -14,9 +16,9 @@
 
         <th></th>
     </tr>
-    <tr *ngFor="let p  of passengers" [ngStyle]="{ 'background-color': (p == selectedPassenger) ? 'orange' : ''  }">
-        <td>{{p.id}}</td>
-        <td>{{p.categoryName}}</td>
-        <td><a (click)="select(p)">Auswählen</a></td>
-    </tr>
+    <tr *ngFor="let u of users">
+        <td>{{u.id}}</td>
+        <td>{{u.categoryName}}</td>
+        <!--<td><a (click)="select(p)">Auswählen</a></td>
+ -->   </tr>
 </table>
