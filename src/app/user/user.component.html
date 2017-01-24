@@ -1,0 +1,22 @@
+<h1>Als User "Namen ausgeben" eingelogt</h1>
+
+<div class="form-group">
+    <label>Kategorie</label>
+</div>
+<div class="form-group">
+    <button class="btn" (click)="search()">Suchen</button>
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <th>id</th>
+        <th>Kategorie</th>
+
+        <th></th>
+    </tr>
+    <tr *ngFor="let p  of passengers" [ngStyle]="{ 'background-color': (p == selectedPassenger) ? 'orange' : ''  }">
+        <td>{{p.id}}</td>
+        <td>{{p.categoryName}}</td>
+        <td><a (click)="select(p)">Auswählen</a></td>
+    </tr>
+</table>

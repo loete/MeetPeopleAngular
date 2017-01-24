@@ -15,6 +15,7 @@ import { RepoListComponent } from './github/repo-list/repo-list.component';
 import { RepoDetailComponent } from './github/repo-detail/repo-detail.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ContactComponent } from './contact/contact.component';
+import {UserModule} from "./user/user.module";
 
 const BASE_URL_FOR_PRODUCTION = "https://localhost:8080"
 
@@ -33,7 +34,8 @@ const BASE_URL_FOR_PRODUCTION = "https://localhost:8080"
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot(rootRouterConfig, { useHash: true })
+    RouterModule.forRoot(rootRouterConfig, { useHash: true }),
+    UserModule
   ],
    providers: [
     GithubService,
