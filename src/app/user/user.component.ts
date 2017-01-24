@@ -15,7 +15,6 @@ export class UserComponent implements OnInit{
 
     public category: string;
 
-
     constructor(private userService: UserService) {
     }
 
