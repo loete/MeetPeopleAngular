@@ -39,4 +39,28 @@ export class MessageService {
                 }
             )
     }
+
+    public findByTitle(title: string) {
+
+        let url = this.baseUrl+this.suffix;
+
+        let search = new URLSearchParams();
+        search.set('title', title);
+
+        let headers = new Headers();
+        headers.set('Accept', 'application/json');
+
+        return this
+            .http
+            .get(url, {headers, search})
+            .map(resp => resp.json())
+            .subscribe(
+                (messages) => {
+                    this.messages = messages._embedded.messageses;
+                },
+                (err) => {
+                    console.error('Fehler beim Laden', err)
+                }
+            )
+    }
 }

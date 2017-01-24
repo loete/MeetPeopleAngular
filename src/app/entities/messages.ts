@@ -4,6 +4,7 @@ export interface messages{
   dayOfMessage: Date;
   placeOfMessage: string;
   message: string;
+  title: string;
   categoryId: number;
   userId: number;
 

@@ -13,7 +13,7 @@ import {messages} from "../entities/messages";
 
 export class MessageComponent implements OnInit{
 
-    public all: string = "";
+    public message: string;
 
     constructor(private messageService: MessageService) {
     }
@@ -22,13 +22,13 @@ export class MessageComponent implements OnInit{
         return this.messageService.messages;
     }
 
-    ngOnInit() {
-        this.messageService
-            .findAll(this.all)
+    ngOnInit(): void {
+       // this.messageService.findAll(this.message);
+
     }
 
     search(): void {
         this.messageService
-            .findAll(this.all)
+            .findByTitle(this.message)
     }
 }

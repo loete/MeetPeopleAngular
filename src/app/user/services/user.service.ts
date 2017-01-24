@@ -9,6 +9,7 @@ import {categories} from "../../entities/categories";
     export class UserService {
 
     users: Array<categories> = [];
+    allUsers: Array<categories> = [];
     suffix: string = 'categorieses';
 
     constructor(
@@ -18,6 +19,8 @@ import {categories} from "../../entities/categories";
     }
 
     public find(categoryName: string) {
+
+        this.users = [];
 
         let url = this.baseUrl+this.suffix;
 
@@ -34,6 +37,30 @@ import {categories} from "../../entities/categories";
             .subscribe(
                 (users) => {
                     this.users = users._embedded.categorieses;
+                },
+                (err) => {
+                    console.error('Fehler beim Laden', err)
+                }
+            )
+    }
+
+    public findAll(categoryName: string) {
+
+        let url = this.baseUrl+this.suffix;
+
+        let search = new URLSearchParams();
+        search.set('categoryName', categoryName);
+
+        let headers = new Headers();
+        headers.set('Accept', 'application/json')
+
+        return this
+            .http
+            .get(url, {headers, search})
+            .map(resp => resp.json())
+            .subscribe(
+                (allUsers) => {
+                    this.allUsers = allUsers._embedded.categorieses;
                 },
                 (err) => {
                     console.error('Fehler beim Laden', err)

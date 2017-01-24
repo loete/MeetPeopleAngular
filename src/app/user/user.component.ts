@@ -20,15 +20,19 @@ export class UserComponent implements OnInit{
     }
 
     ngOnInit(): void {
-      this.userService.find(this.category);
+      this.userService.findAll(this.category);
     }
 
     public get users(): Array<categories> {
      return this.userService.users;
      }
 
+    public get allUsers(): Array<categories> {
+        return this.userService.allUsers;
+    }
+
     search(): void {
         this.userService
-            .find(this.category)
+            .find(this.category);
     }
 }
