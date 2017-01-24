@@ -4,6 +4,7 @@ import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {MessageComponent} from "./message.component";
 import {MessageService} from "./services/message.service";
+import {MessageDetailComponent} from "./message-detail.component";
 
 @NgModule({
     imports: [
@@ -13,6 +14,7 @@ import {MessageService} from "./services/message.service";
     ],
     declarations: [
         MessageComponent,
+        MessageDetailComponent
         // MessageEditComponent
     ],
     providers: [
