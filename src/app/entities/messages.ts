@@ -6,6 +6,6 @@ export interface messages{
   message: string;
   title: string;
   categoryId: number;
-  userId: number;
+  userId: string;
 
 }

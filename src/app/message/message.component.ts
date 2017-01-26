@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MessageService} from "./services/message.service";
 import {messages} from "../entities/messages";
+import {users} from "../entities/users";
 
 
 
@@ -21,6 +22,10 @@ export class MessageComponent implements OnInit{
 
     public get messages(): Array<messages> {
         return this.messageService.messages;
+    }
+
+    public get users(): Array<users> {
+        return this.messageService.correspondingUsers;
     }
 
     ngOnInit(): void {

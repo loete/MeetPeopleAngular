@@ -3,12 +3,14 @@ import {BASE_URL} from "../../app.token";
 import {Http, URLSearchParams, Headers} from "@angular/http";
 import {messages} from "../../entities/messages";
 import {Observable} from "rxjs";
+import {users} from "../../entities/users";
 
 @Injectable()
 export class MessageService {
 
     messages: Array<messages> = [];
-    titles: Array<messages> = [];
+    correspondingUsers: Array<users> = [];
+
     suffix: string = 'messageses';
 
     constructor(
@@ -56,22 +58,28 @@ export class MessageService {
         let headers = new Headers();
         headers.set('Accept', 'application/json');
 
-        this.titles = [];
-
         return this
             .http
             .get(url, {headers, search})
             .map(resp => resp.json())
             .subscribe(
                 (messages) => {
-                    this.messages = messages._embedded.messageses;
-                    for(let t of this.messages) {
-                        if(title == t.title) {
-                            this.titles.push(t);
-                        }
+                    this.messages = messages._embedded.messageses; //get all messages
+                    this.messages.reverse() //latest data first
+                    for(let m of this.messages) {
+                      if (title == m.title) { // get only those, where searched title is appropriate
+                        this.messages = [];
+                        this.messages.push(m)
+                      }
+                      for(let m of this.messages) {
+                        this.correspondingUsers = [];
+                        this.http.get(this.baseUrl+this.suffix+'/'+m.id, {headers}).map(resp => resp.json())
+                          .subscribe((users) => {
+                            this.correspondingUsers = users; }//get corresponding user data
+                            //this.correspondingUsers.reverse()                           }
+                          )
+                      }
                     }
-                    if(this.titles.length > 0) {
-                   this.messages = this.titles}
                 },
                 (err) => {
                     console.error('Fehler beim Laden', err)
