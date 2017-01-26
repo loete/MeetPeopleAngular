@@ -1,15 +1,15 @@
 import {Injectable, Inject} from "@angular/core";
 import {BASE_URL} from "../../app.token";
 import {Http, URLSearchParams, Headers} from "@angular/http";
-import {messages} from "../../entities/messages";
+import {Messages} from "../../entities/messages";
 import {Observable} from "rxjs";
-import {users} from "../../entities/users";
+import {User} from "../../entities/users";
 
 @Injectable()
 export class MessageService {
 
-    messages: Array<messages> = [];
-    correspondingUsers: Array<users> = [];
+    messages: Array<Messages> = [];
+    correspondingUsers: Array<User> = [];
 
     suffix: string = 'messageses';
 
@@ -19,7 +19,7 @@ export class MessageService {
     {
     }
 
-    public findById(id:string): Observable<messages> {
+    public findById(id:string): Observable<Messages> {
 
       let url = this.baseUrl+this.suffix+"/"+id
 
@@ -35,7 +35,7 @@ export class MessageService {
         .map(resp => resp.json())
     }
 
-    public save(message:messages): Observable<messages> {
+    public save(message:Messages): Observable<Messages> {
 
       let url = this.baseUrl+this.suffix;
 
@@ -44,7 +44,7 @@ export class MessageService {
 
       return this
         .http
-        .post(url, message,{headers})
+        .put(url, message,{headers})
         .map(resp => resp.json())
     }
 
@@ -64,7 +64,7 @@ export class MessageService {
             .map(resp => resp.json())
             .subscribe(
                 (messages) => {
-                    this.messages = messages._embedded.messageses; //get all messages
+                    this.messages = messages._embedded.messageses; //get all Messages
                     this.messages.reverse() //latest data first
                     for(let m of this.messages) {
                       if (title == m.title) { // get only those, where searched title is appropriate

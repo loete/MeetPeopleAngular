@@ -54,7 +54,7 @@ var defaultConfig = {
   output: {
     filename: '[name].bundle.js',
     sourceMapFilename: '[name].map',
-    chunkFilename: '[id].chunk.js'
+    chunkFilename: '[user_id].chunk.js'
   },
 
   resolve: {

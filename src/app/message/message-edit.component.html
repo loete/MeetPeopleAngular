@@ -20,21 +20,23 @@
     <input [(ngModel)]="message.placeOfMessage" class="form-control">
   </div>
   <div class="form-group">
-    <div class="input-group">
+    <label>Date</label>
+    <input [(ngModel)]="message.dayOfMessage" class="form-control">
+    <!--<div class="input-group">
       <input class="form-control" placeholder="yyyy-mm-dd"
              name="dp" [(ngModel)]="message.dayOfMessage" ngbDatepicker #d="ngbDatepicker">
       <div class="input-group-addon" (click)="d.toggle()" >
         <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
       </div>
-    </div>
+    </div> -->
   </div>
   <div class="form-group">
     <label>Category</label>
-    <input [(ngModel)]="message.categoryId" class="form-control">
+    <input [(ngModel)]="message.category" class="form-control">
   </div>
   <div class="form-group">
     <label>User</label>
-    <input [(ngModel)]="message.userId" class="form-control">
+    <input [(ngModel)]="message.user" class="form-control">
   </div>
 
   <div class="form-group">

@@ -1,11 +1,11 @@
-export interface messages{
+export interface Messages{
 
   id: number;
   dayOfMessage: string;
   placeOfMessage: string;
   message: string;
   title: string;
-  categoryId: number;
-  userId: string;
+  category: number;
+  user: string;
 
 }

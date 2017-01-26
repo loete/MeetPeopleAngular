@@ -1,15 +1,15 @@
 
 import {Injectable, Inject} from "@angular/core";
-import {users} from "../../entities/users";
+import {User} from "../../entities/users";
 import {BASE_URL} from "../../app.token";
 import {Http, URLSearchParams, Headers} from "@angular/http";
-import {categories} from "../../entities/categories";
+import {Categories} from "../../entities/categories";
 
 @Injectable()
     export class UserService {
 
-    users: Array<categories> = [];
-    allUsers: Array<categories> = [];
+    users: Array<Categories> = [];
+    allUsers: Array<Categories> = [];
     suffix: string = 'categorieses';
 
     constructor(

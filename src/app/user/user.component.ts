@@ -1,6 +1,6 @@
 import {Component,OnInit} from '@angular/core';
 import {UserService} from "./services/user.service";
-import {categories} from "../entities/categories";
+import {Categories} from "../entities/categories";
 
 
 
@@ -22,11 +22,11 @@ export class UserComponent implements OnInit{
       this.userService.findAll(this.category);
     }
 
-    public get users(): Array<categories> {
+    public get users(): Array<Categories> {
      return this.userService.users;
      }
 
-    public get allUsers(): Array<categories> {
+    public get allUsers(): Array<Categories> {
         return this.userService.allUsers;
     }
 

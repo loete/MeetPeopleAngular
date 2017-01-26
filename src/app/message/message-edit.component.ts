@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
 import {MessageService} from "./services/message.service";
 import {ActivatedRoute} from "@angular/router";
-import {messages} from "../entities/messages";
+import {Messages} from "../entities/messages";
 
 @Component({
   templateUrl: './message-edit.component.html',
@@ -20,7 +20,7 @@ export class MessageEditComponent {
     )
   }
 
-  message: messages;
+  message: Messages;
   msg: string;
 
   load(id: string): void {

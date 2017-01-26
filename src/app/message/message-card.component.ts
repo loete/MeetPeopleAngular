@@ -1,5 +1,5 @@
 import {Component, Input} from "@angular/core";
-import {messages} from "../entities/messages";
+import {Messages} from "../entities/messages";
 
 @Component({
   templateUrl: './message-card.component.html',
@@ -8,6 +8,6 @@ import {messages} from "../entities/messages";
 
 export class MessageCardComponent {
 
-  @Input() item: messages;
+  @Input() item: Messages;
 
 }

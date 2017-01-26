@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MessageService} from "./services/message.service";
-import {messages} from "../entities/messages";
-import {users} from "../entities/users";
+import {Messages} from "../entities/messages";
+import {User} from "../entities/users";
 
 
 
@@ -15,16 +15,16 @@ import {users} from "../entities/users";
 export class MessageComponent implements OnInit{
 
     public title: string;
-    public selectedMessage: messages;
+    public selectedMessage: Messages;
 
     constructor(private messageService: MessageService) {
     }
 
-    public get messages(): Array<messages> {
+    public get messages(): Array<Messages> {
         return this.messageService.messages;
     }
 
-    public get users(): Array<users> {
+    public get users(): Array<User> {
         return this.messageService.correspondingUsers;
     }
 
@@ -37,7 +37,7 @@ export class MessageComponent implements OnInit{
             .findByTitle(this.title)
     }
 
-    select(message: messages): void {
+    select(message: Messages): void {
         this.selectedMessage = message;
     }
 }

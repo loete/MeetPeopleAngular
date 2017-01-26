@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {MessageService} from "./services/message.service";
-import {messages} from "../entities/messages";
+import {Messages} from "../entities/messages";
 import {ActivatedRoute} from "@angular/router";
 
 
@@ -30,7 +30,7 @@ export class MessageDetailComponent{
 
     }
 
-    message: messages;
+    message: Messages;
     msg: string;
 
     load(id: string): void {

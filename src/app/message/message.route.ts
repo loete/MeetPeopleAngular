@@ -9,11 +9,11 @@ const MESSAGE_ROUTES: Routes = [
     component: MessageComponent
   },
   {
-    path: 'message-edit/:id',
+    path: 'message-edit/:user_id',
     component: MessageEditComponent
   },
     {
-        path: 'message-detail/:id',
+        path: 'message-detail/:user_id',
         component: MessageDetailComponent
     }
 ];
